@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="栈与队列 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/09/01/xuysang.github.io/2019/05/26/栈与队列/index/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="栈与队列 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-01T15:09:49.153Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="栈与队列 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-xuysang.github.io/2019/05/26/栈与队列/index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/01/xuysang.github.io/2019/05/26/栈与队列/index/" class="article-date">
+  <time datetime="2019-09-01T15:09:49.152Z" itemprop="datePublished">2019-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>栈与队列 | 雨桑的小窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="栈和队列都是线性数据结构，并且栈和队列还蛮相似的，所以偷个懒，放在一起写。记得最开始学的时候，我也有疑惑，就是为什么要存在这种数据结构，这种不是相当于数组和链表的变形么，看了王争老师的解释：特定的数据结构是对特定场景的抽象。那么栈和队列的构造，就是为了一定程度上减轻使用数组和链表，因为前两者暴露了太多操作接口，使用时比较不可控，容易出错。那什么是栈，什么是队列呢，不难理解，栈就是后进先出，一般都是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈与队列">
+<meta property="og:url" content="http://yoursite.com/2019/05/26/栈与队列/index.html">
+<meta property="og:site_name" content="雨桑的小窝">
+<meta property="og:description" content="栈和队列都是线性数据结构，并且栈和队列还蛮相似的，所以偷个懒，放在一起写。记得最开始学的时候，我也有疑惑，就是为什么要存在这种数据结构，这种不是相当于数组和链表的变形么，看了王争老师的解释：特定的数据结构是对特定场景的抽象。那么栈和队列的构造，就是为了一定程度上减轻使用数组和链表，因为前两者暴露了太多操作接口，使用时比较不可控，容易出错。那什么是栈，什么是队列呢，不难理解，栈就是后进先出，一般都是">
+<meta property="og:updated_time" content="2019-05-26T13:33:41.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="栈与队列">
+<meta name="twitter:description" content="栈和队列都是线性数据结构，并且栈和队列还蛮相似的，所以偷个懒，放在一起写。记得最开始学的时候，我也有疑惑，就是为什么要存在这种数据结构，这种不是相当于数组和链表的变形么，看了王争老师的解释：特定的数据结构是对特定场景的抽象。那么栈和队列的构造，就是为了一定程度上减轻使用数组和链表，因为前两者暴露了太多操作接口，使用时比较不可控，容易出错。那什么是栈，什么是队列呢，不难理解，栈就是后进先出，一般都是">
+  
+    <link rel="alternate" href="/atom.xml" title="雨桑的小窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">雨桑的小窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你看得见我吗？</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-栈与队列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/26/栈与队列/" class="article-date">
+  <time datetime="2019-05-26T13:33:41.000Z" itemprop="datePublished">2019-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      栈与队列
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>栈和队列都是线性数据结构，并且栈和队列还蛮相似的，所以偷个懒，放在一起写。记得最开始学的时候，我也有疑惑，就是为什么要存在这种数据结构，这种不是相当于数组和链表的变形么，看了王争老师的解释：特定的数据结构是对特定场景的抽象。那么栈和队列的构造，就是为了一定程度上减轻使用数组和链表，因为前两者暴露了太多操作接口，使用时比较不可控，容易出错。<br>那什么是栈，什么是队列呢，不难理解，栈就是后进先出，一般都是想象一个凹槽，东西一个个放进去，最后放进去的是最先取出来的，大概是这么一个模型。队列就是先进先出，想象一个队伍，队尾不断有人进来，出去就是从队首先出去。所以最主要是要实现push和pop两个功能。<br>用数组和链表都可以实现栈。如果是用链表实现，压入和取出的操作都是在表头实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"># 用链表实现栈</div><div class="line">from typing import Optional</div><div class="line">class Node:</div><div class="line">    def __init__(self, data: int, next=None):</div><div class="line">        self._data = data</div><div class="line">        self._next = next</div><div class="line"></div><div class="line">class LinkedStack:</div><div class="line">    def __init__(self):</div><div class="line">        self._top: Node = None</div><div class="line"></div><div class="line">    def push(self, value: int):</div><div class="line">        new_top = Node(value)</div><div class="line">        new_top._next = self._top</div><div class="line">        self._top = new_top</div><div class="line"></div><div class="line">    def pop(self) -&gt; Optional[int]:</div><div class="line">        if self._top:</div><div class="line">            value = self._top._data</div><div class="line">            self._top = self._top._next</div><div class="line">            return value</div><div class="line"></div><div class="line">    def __repr__(self) -&gt; str:</div><div class="line">        current = self._top</div><div class="line">        nums = []</div><div class="line">        while current:</div><div class="line">            nums.append(current._data)</div><div class="line">            current = current._next</div><div class="line">        return &quot; &quot;.join(f&quot;&#123;num&#125;]&quot; for num in nums)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># 用数组实现栈，定义一个列表，用append和pop实现</div><div class="line">class Stack:</div><div class="line">     def __init__(self):</div><div class="line">         self.items = []</div><div class="line"></div><div class="line">     def isEmpty(self):</div><div class="line">         return self.items == []</div><div class="line"></div><div class="line">     def push(self, item):</div><div class="line">         self.items.append(item)</div><div class="line"></div><div class="line">     def pop(self):</div><div class="line">         return self.items.pop()</div><div class="line"></div><div class="line">     def peek(self):</div><div class="line">         return self.items[len(self.items)-1]</div><div class="line"></div><div class="line">     def size(self):</div><div class="line">         return len(self.items)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"># 用链表实现队列</div><div class="line">from typing import Optional</div><div class="line">class Node:</div><div class="line"></div><div class="line">    def __init__(self, data: str, next=None):</div><div class="line">        self.data = data</div><div class="line">        self._next = next</div><div class="line"></div><div class="line">class LinkedQueue:</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self._head: Optional[Node] = None</div><div class="line">        self._tail: Optional[Node] = None</div><div class="line"></div><div class="line">    def enqueue(self, value: str):</div><div class="line">        new_node = Node(value)</div><div class="line">        if self._tail:</div><div class="line">            self._tail._next = new_node</div><div class="line">        else:</div><div class="line">            self._head = new_node</div><div class="line">        self._tail = new_node</div><div class="line"></div><div class="line">    def dequeue(self) -&gt; Optional[str]:</div><div class="line">        if self._head:</div><div class="line">            value = self._head.data</div><div class="line">            self._head = self._head._next</div><div class="line">            if not self._head:</div><div class="line">                self._tail = None</div><div class="line">            return value</div><div class="line"></div><div class="line">    def __repr__(self) -&gt; str:</div><div class="line">        values = []</div><div class="line">        current = self._head</div><div class="line">        while current:</div><div class="line">            values.append(current.data)</div><div class="line">            current = current._next</div><div class="line">        return &quot;-&gt;&quot;.join(value for value in values)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 用数组实现队列，定义一个列表，区别与栈的就是栈是列表尾进数据，列表尾出数据。队列是往列表首添加数据</div><div class="line">class Queue:</div><div class="line">    def __init__(self):</div><div class="line">        self.items = []</div><div class="line"></div><div class="line">    def isEmpty(self):</div><div class="line">        return self.items == []</div><div class="line"></div><div class="line">    def enqueue(self, item):</div><div class="line">        self.items.insert(0,item)</div><div class="line"></div><div class="line">    def dequeue(self):</div><div class="line">        return self.items.pop()</div><div class="line"></div><div class="line">    def size(self):</div><div class="line">        return len(self.items)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 用数组实现双端队列，可以在前面或后面添加新项。同样，可以从任一端移除现有项。</div><div class="line">class Deque:</div><div class="line">    def __init__(self):</div><div class="line">        self.items = []</div><div class="line"></div><div class="line">    def isEmpty(self):</div><div class="line">        return self.items == []</div><div class="line"></div><div class="line">    def addFront(self, item):</div><div class="line">        self.items.append(item)</div><div class="line"></div><div class="line">    def addRear(self, item):</div><div class="line">        self.items.insert(0,item)</div><div class="line"></div><div class="line">    def removeFront(self):</div><div class="line">        return self.items.pop()</div><div class="line"></div><div class="line">    def removeRear(self):</div><div class="line">        return self.items.pop(0)</div><div class="line"></div><div class="line">    def size(self):</div><div class="line">        return len(self.items)</div></pre></td></tr></table></figure>
+<p>感觉用数组实现比较好理解。</p>
+<hr>
+<p>接下来是放一些练习题。<br><strong>1.有效括号（leetcode 20）</strong><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。<br>有效字符串需满足：<br>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。<br>示例 1:<br>输入: “()”<br>输出: true</p>
+<p>示例 2:<br>输入: “([)]”<br>输出: false</p>
+<p>解法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Solution(object):</div><div class="line">    def isValid(self, s):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type s: str</div><div class="line">        :rtype: bool</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        stack = []</div><div class="line">        for i in s:</div><div class="line">            if i in &quot;(&#123;[&quot;:</div><div class="line">                stack.append(i)</div><div class="line">            elif i == &apos;)&apos;:</div><div class="line">                if not stack or stack.pop()!=&apos;(&apos;:</div><div class="line">                    return False</div><div class="line">            elif i == &apos;]&apos;:</div><div class="line">                if not stack or stack.pop()!=&apos;[&apos;:</div><div class="line">                    return False</div><div class="line">            elif i == &apos;&#125;&apos;:</div><div class="line">                if not stack or stack.pop()!=&apos;&#123;&apos;:</div><div class="line">                    return False</div><div class="line">        return not stack #最终列表为空为True</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>2.验证回文串（leetcode 125）</strong><br>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。<br>说明：本题中，我们将空字符串定义为有效的回文串。<br>示例 1:<br>输入: “A man, a plan, a canal: Panama”<br>输出: true</p>
+<p>示例 2:<br>输入: “race a car”<br>输出: false</p>
+<p>解法：<br>之前学习链表的时候，有一道判断回文的题目。当时给的用链表解题的思路是：用快慢指针定位到中点的位置，然后慢指针反转后面半个链表，再从头设一个指针，两个指针不断前进并且比较，如果一直一致就确定是回文字符串。（答案链接<a href="http://" target="_blank" rel="external">https://github.com/wangzheng0822/algo/blob/master/python/06_linkedlist/palindrome.py</a>）<br>第二个思路，就是利用双端队列，直接pop比较两端的字符并且不断向中间靠近，当最后栈中的数据长短小于等于1时，表明是回文字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from pythonds.basic.deque import Deque</div><div class="line">def palchecker(aString):</div><div class="line">    chardeque = Deque()</div><div class="line">    for ch in aString:</div><div class="line">        chardeque.addRear(ch)</div><div class="line">    stillEqual = True</div><div class="line">    while chardeque.size() &gt; 1 and stillEqual:</div><div class="line">        first = chardeque.removeFront()</div><div class="line">        last = chardeque.removeRear()</div><div class="line">        if first != last:</div><div class="line">            stillEqual = False</div><div class="line">    return stillEqual</div></pre></td></tr></table></figure></p>
+<p>第三个思路，直接利用列表的用法，和反转后的比较是否相等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">class Solution:</div><div class="line">    def isPalindrome(self, s: str) -&gt; bool:</div><div class="line">        s = &apos;&apos;.join(filter(str.isalnum,s)).lower()</div><div class="line">        return s==s[::-1]</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>3.最大频率栈（leetcode 895）</strong><br>实现 FreqStack，模拟类似栈的数据结构的操作的一个类。<br>FreqStack 有两个函数：<br>push(int x)，将整数 x 推入栈中。<br>pop()，它移除并返回栈中出现最频繁的元素。<br>如果最频繁的元素不只一个，则移除并返回最接近栈顶的元素。<br>示例：</p>
+<p>输入：<br>[“FreqStack”,”push”,”push”,”push”,”push”,”push”,”push”,”pop”,”pop”,”pop”,”pop”],<br>[[],[5],[7],[5],[7],[4],[5],[],[],[],[]]<br>输出：[null,null,null,null,null,null,null,5,7,5,4]</p>
+<p>解法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">class FreqStack(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        self.freq = collections.Counter()</div><div class="line">        self.group = collections.defaultdict(list)</div><div class="line">        self.maxfreq = 0</div><div class="line"></div><div class="line">    def push(self, x):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type x: int</div><div class="line">        :rtype: None</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        f = self.freq[x] + 1</div><div class="line">        self.freq[x] = f</div><div class="line">        if f &gt; self.maxfreq:</div><div class="line">            self.maxfreq = f</div><div class="line">        self.group[f].append(x)</div><div class="line"></div><div class="line">    def pop(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        x = self.group[self.maxfreq].pop()</div><div class="line">        self.freq[x] -= 1</div><div class="line">        if not self.group[self.maxfreq]:</div><div class="line">            self.maxfreq -= 1</div><div class="line"></div><div class="line">        return x</div></pre></td></tr></table></figure></p>
+<p>这个解法就相当巧妙了。用了collections模块（用法：<a href="http://" target="_blank" rel="external">https://www.liaoxuefeng.com/wiki/897692888725344/973805065315456</a>），记录了相同元素的个数以及最多元素出现的频率数，在pop的时候能很容易定位到。</p>
+<hr>
+<p><strong>用栈实现队列（leetcode 232）</strong><br>使用栈实现队列的下列操作：</p>
+<p>push(x) – 将一个元素放入队列的尾部。<br>pop() – 从队列首部移除元素。<br>peek() – 返回队列首部的元素。<br>empty() – 返回队列是否为空。</p>
+<p>示例:<br>MyQueue queue = new MyQueue();<br>queue.push(1);<br>queue.push(2);<br>queue.peek();  // 返回 1<br>queue.pop();   // 返回 1<br>queue.empty(); // 返回 false</p>
+<p>解法：<br>第一种直接用列表实现，然后pop直接从列表首部取出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">class MyQueue:</div><div class="line">    def __init__(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Initialize your data structure here.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.stack=[]</div><div class="line">        self.size=0</div><div class="line"></div><div class="line">    def push(self, x: int) -&gt; None:</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Push element x to the back of queue.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.stack.append(x)</div><div class="line">        self.size += 1</div><div class="line"></div><div class="line">    def pop(self) -&gt; int:</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Removes the element from in front of queue and returns that element.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if self.empty:</div><div class="line">            a = self.stack.pop(0)</div><div class="line">            self.size -= 1</div><div class="line">            return a</div><div class="line">        else:</div><div class="line">            return None</div><div class="line"></div><div class="line">    def peek(self) -&gt; int:</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Get the front element.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if self.size == 0:</div><div class="line">            return None</div><div class="line">        else:</div><div class="line">            return self.stack[0]</div><div class="line"></div><div class="line">    def empty(self) -&gt; bool:</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Returns whether the queue is empty.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if self.size == 0:</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            return False</div></pre></td></tr></table></figure></p>
+<p>第二种解法，是利用两个栈构造队列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">class MyQueue(object):</div><div class="line">    def __init__(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Initialize your data structure here.</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.stack1 = []</div><div class="line">        self.stack2 = []</div><div class="line"></div><div class="line">    def push(self, x):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Push element x to the back of queue.</div><div class="line">        :type x: int</div><div class="line">        :rtype: None</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self.stack1.append(x)</div><div class="line"></div><div class="line">    def pop(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Removes the element from in front of queue and returns that element.</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if len(self.stack2) == 0:</div><div class="line">            while len(self.stack1) != 0:</div><div class="line">                self.stack2.append(self.stack1.pop())</div><div class="line">        return self.stack2.pop()</div><div class="line"></div><div class="line">    def peek(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Get the front element.</div><div class="line">        :rtype: int</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if len(self.stack2) == 0:</div><div class="line">            while len(self.stack1) != 0:</div><div class="line">                self.stack2.append(self.stack1.pop())</div><div class="line">        return self.stack2[-1]</div><div class="line"></div><div class="line">    def empty(self):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        Returns whether the queue is empty.</div><div class="line">        :rtype: bool</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        return len(self.stack1) + len(self.stack2) == 0</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/26/栈与队列/" data-id="cjylbxp61000wl8uxaac4zi1j" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/28/365个祝福/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          365个祝福
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/25/微电影搭建二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">微电影搭建二</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/27/不知道吃什么/">不知道吃什么</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/2019-7-17/">2019-7-17</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/今日感想/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/2019-7-4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/01/鹏华基金（某一日期所有代码）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 xxxxxu<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/01/xuysang.github.io/2019/05/26/栈与队列/index/" data-id="ck014yg6b004gm1sges3iz2mb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/01/xuysang.github.io/2019/05/28/365个祝福/index/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/01/xuysang.github.io/2019/05/25/微电影搭建二/index/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/01/xuysang.github.io/page/6/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/01/xuysang.github.io/page/7/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/01/xuysang.github.io/page/5/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/01/xuysang.github.io/page/4/index/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/01/xuysang.github.io/page/2/index/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
