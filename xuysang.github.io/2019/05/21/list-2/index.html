@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="list_2 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/xuysang.github.io/2019/05/21/list-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="list_2 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-01T15:09:49.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="list_2 | 雨桑的小窝                                                                                                    雨桑的小窝                                  你看得见我吗？">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/xuysang.github.io/2019/05/21/list-2/index.html" class="article-date">
+  <time datetime="2019-09-01T15:09:49.140Z" itemprop="datePublished">2019-09-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>list_2 | 雨桑的小窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习链表，王峥老师说要熟练掌握五个常见的链表操作（单链表反转、链表中环的检测、两个有序的链表合并、删除链表倒数第n个结点、求链表中的中间结点，相对应的leetcode分别是206，141，21，19，876。反转链表已经在之前讲过，因此这篇主要讲的是剩下的四个。
+在这四个操作里面，有三个可以通过快慢指针来解题。最开始，什么是快慢指针我也不了解，根据“五毒法”之第一步直接看答案解析，我知道了快慢指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="list_2">
+<meta property="og:url" content="http://yoursite.com/2019/05/21/list-2/index.html">
+<meta property="og:site_name" content="雨桑的小窝">
+<meta property="og:description" content="学习链表，王峥老师说要熟练掌握五个常见的链表操作（单链表反转、链表中环的检测、两个有序的链表合并、删除链表倒数第n个结点、求链表中的中间结点，相对应的leetcode分别是206，141，21，19，876。反转链表已经在之前讲过，因此这篇主要讲的是剩下的四个。
+在这四个操作里面，有三个可以通过快慢指针来解题。最开始，什么是快慢指针我也不了解，根据“五毒法”之第一步直接看答案解析，我知道了快慢指针">
+<meta property="og:updated_time" content="2019-05-31T03:47:10.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="list_2">
+<meta name="twitter:description" content="学习链表，王峥老师说要熟练掌握五个常见的链表操作（单链表反转、链表中环的检测、两个有序的链表合并、删除链表倒数第n个结点、求链表中的中间结点，相对应的leetcode分别是206，141，21，19，876。反转链表已经在之前讲过，因此这篇主要讲的是剩下的四个。
+在这四个操作里面，有三个可以通过快慢指针来解题。最开始，什么是快慢指针我也不了解，根据“五毒法”之第一步直接看答案解析，我知道了快慢指针">
+  
+    <link rel="alternate" href="/atom.xml" title="雨桑的小窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">雨桑的小窝</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">你看得见我吗？</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-list-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/21/list-2/" class="article-date">
+  <time datetime="2019-05-20T17:40:34.000Z" itemprop="datePublished">2019-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      list_2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习链表，王峥老师说要熟练掌握五个常见的链表操作（单链表反转、链表中环的检测、两个有序的链表合并、删除链表倒数第n个结点、求链表中的中间结点，相对应的leetcode分别是206，141，21，19，876。反转链表已经在之前讲过，因此这篇主要讲的是剩下的四个。</p>
+<p>在这四个操作里面，有三个可以通过快慢指针来解题。最开始，什么是快慢指针我也不了解，根据“五毒法”之第一步直接看答案解析，我知道了快慢指针的思想，人为的设置两个指针，一个走的快，一次走两个结点，一个慢，一次只走一个结点，说到这，求链表中的中间结点的思路已经出来了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 求链表中中间结点</div><div class="line">class Solution(object):</div><div class="line">    def middleNode(self, head):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        slow=fast=head</div><div class="line">        while fast and fast.next:</div><div class="line">            slow=slow.next</div><div class="line">            fast=fast.next.next</div><div class="line">        return slow</div></pre></td></tr></table></figure></p>
+<p>链表中环的检测，也可以利用快慢指针，因为倘若链表中存在环，那么这个遍历会一直持续下去，那么快慢指针终有相遇的时候。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 链表中环的检测</div><div class="line">class Solution(object):</div><div class="line">    def hasCycle(self, head):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: bool</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        slow = fast = head</div><div class="line">        while fast and fast.next:</div><div class="line">            slow = slow.next</div><div class="line">            fast = fast.next.next</div><div class="line">            if slow == fast:</div><div class="line">                return True</div><div class="line">        return False</div></pre></td></tr></table></figure></p>
+<p>第三个是删除链表倒数第N个结点。这个一开始即使看解法，我也没有看懂（真的愚蠢）。其实从一开始我就没看清题目的意思，题中列表和N值是给定的。使用快指针明确走到第N个结点，然后慢指针开始走，当快指针走到链尾，慢指针所在的位置就是倒数第N个。当然遍历两边，直接找到倒数N的位置也是可以的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 删除倒数第N个结点</div><div class="line">class Solution(object):</div><div class="line">    def removeNthFromEnd(self, head, n):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type head: ListNode</div><div class="line">        :type n: int</div><div class="line">        :rtype: ListNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        fast = self.__head</div><div class="line">        slow = self.__head</div><div class="line">        step = 0</div><div class="line"></div><div class="line">        while step &lt;= n:</div><div class="line">            fast = fast.next</div><div class="line">            step += 1</div><div class="line"></div><div class="line">        while fast.next != None:</div><div class="line">            tmp = slow</div><div class="line">            fast = fast.next</div><div class="line">            slow = slow.next</div><div class="line"></div><div class="line">        tmp.next = slow.next</div></pre></td></tr></table></figure></p>
+<p>最后要讲一下合并两个有序列表，首先，是看有没有任一个表是空列表，那合并后就是非空那一列表。若两个链表都是非空链表，就分别拿出链表的第一个结点开始比大小，小的那个作为第一个结点，再把较大的那个与小的那个结点的下一个结点作比较，运用递归的方式，始终保持较小值的结点在前面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 合并两个有序列表</div><div class="line">class Solution(object):</div><div class="line">    def mergeTwoLists(self, l1, l2):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        :type l1: ListNode</div><div class="line">        :type l2: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        if l1==None:return l2</div><div class="line">        if l2==None:return l1</div><div class="line">        if l1.val&gt;l2.val:l1,l2 = l2,l1</div><div class="line">        l1.next=self.mergeTwoLists(l1.next,l2)</div><div class="line">        return l1</div></pre></td></tr></table></figure></p>
+<p>链表的五种操作方式终于写完了，其实除了快慢指针，还有其他方式也可以解题，这里着重介绍了快慢指针的用法。关于python的数据结构和算法，我觉得我对python面向对象这个特性以及用法什么的还很不清楚，然后我找到了两个不错的资源，希望能尽早看完，这里也贴一下。</p>
+<p>problem-solving-with-algorithms-and-data-structure-using-python 中文版：<a href="http://" target="_blank" rel="external">https://facert.gitbooks.io/python-data-structure-cn/content/</a><br>python面向对象编程：<a href="http://" target="_blank" rel="external">https://www.bilibili.com/video/av8475172?p=6</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> ,_</div><div class="line">&gt;&apos; )</div><div class="line">( ( \ </div><div class="line"> &apos;&apos;|\</div><div class="line">  菜鸟碎碎念时间：发现我有个很不好的习惯，不够高效。明明集中精力短时间可以搞定的事情，偏偏要拖很久。希望这个习惯可以慢慢改变，注意力也能越来越集中。学习学得认真，玩也玩得开心~啊对了，今天还学了html和css的一部分，以及pyinstaller是个打包好东西，对第三方库又多一点了解啦^^end...</div><div class="line">  题外话：发现做饭节目好治愈呀~又想骗我学做饭然后洗碗刷锅了=_=</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/21/list-2/" data-id="cjylbxp52000al8uxcs2b3c07" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/21/平凡的一天/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          平凡的一天
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/20/菜鸟碎碎念/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">菜鸟碎碎念</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/27/不知道吃什么/">不知道吃什么</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/2019-7-17/">2019-7-17</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/今日感想/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/08/2019-7-4/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/01/鹏华基金（某一日期所有代码）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 xxxxxu<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/xuysang.github.io/2019/05/21/list-2/index.html" data-id="ck014pp1h001lkdsgujcn2m8y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/01/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
