@@ -1,8 +1,10 @@
+---
 title: flask基础
 date: 2019-09-07 21:56:31
-categories:技术
-tags:基础
+categories: 技术
+tags: 基础
 
+---
 ![204](/Users/xuys/Desktop/blog/branch/source/_posts/图片/204.jpeg)
 
 ###### flask优点：轻巧、可扩展性
