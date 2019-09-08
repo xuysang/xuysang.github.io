@@ -100,7 +100,7 @@ def get_user(id):
     user = load_user(id)
     if not user:
         abort(404) # 注意，abort()不会把控制权交还给调用它的函数，而是抛出异常。
-       return '<h1>Hello, {}</h1>'.format(user.name）      
+    return '<h1>Hello, {}</h1>'.format(user.name）      
 ```
 
 #### 模板
@@ -119,7 +119,8 @@ Flask使用一个名为Jinja2的强大模板引擎。模板使用的{{ name }}�
 <p>A value from a list,with a variable index: {{ mylist[myintvar] }}.</p>
 <p>A value from an object's method: {{ myobj.somemethod() }}.</p>
 
-Hello,{{ name|capitalize }} #变量值可以用过滤器修改。过滤器加在变量名之后，二者之间以竖线分隔。
+#变量值可以用过滤器修改。过滤器加在变量名之后，二者之间以竖线分隔。
+Hello,{{ name|capitalize }} 
 ```
 
 2.控制结构
