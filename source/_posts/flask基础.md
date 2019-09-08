@@ -5,9 +5,7 @@ categories: 技术
 tags: 基础
 
 ---
-
-
-## flask优点：轻巧、可扩展性
+**flask优点：轻巧、可扩展性**
 
 ### flask依赖
 
@@ -154,8 +152,6 @@ for循环：
 {% extends "base.html" %}
 ```
 
-.....
-
 extends指令声明这个模板衍生自base.html。在extends指令之后，基模板的3个区块被重新定义，模板引擎会将其插入适当的位置。在衍生模板的区块里可以调用super()，引用基模板中同名区块里的内容。
 
 3.自定义错误页面
@@ -195,9 +191,12 @@ def user(name):
 
 Flask在应用根目录中名为static的子目录里寻找静态文件。因此需要新建static子目录。在URL映射时，有一个Flask为了支持静态文件自动添加的static路由，这个URL是/static/<filename>。
 
-调用url_for('static',filename='css/style.css',_external=True)得到的结果是http://localhost:5000/static/css/style.css。
+```
+调用url_for('static',filename='css/style.css',_external=True)得到的结果是http://localhost:5000/static/css/style.css
+```
 
 ```
+# base.html 定义收藏夹图标
 {% block head %}
 {{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
