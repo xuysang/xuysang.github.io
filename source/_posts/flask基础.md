@@ -7,11 +7,13 @@ tags: 基础
 ---
 
 
-### flask优点：轻巧、可扩展性
+## flask优点：轻巧、可扩展性
 
-#### flask依赖
+### flask依赖
 
 flask的基础从它三个依赖说起。第一个是路由，调试和WSGI（web服务器网关接口）子系统，由[Werkzeug](https://werkzeug-docs-cn.readthedocs.io/zh_CN/latest/)提供；第二个是模版系统由[Jinja2](http://docs.jinkan.org/docs/jinja2/)提供；第三个是命令行集成，由[Click](https://click-docs-zh-cn.readthedocs.io/zh/latest/)提供。这些依赖，是Flask开发者Armin Ronacher开发的。Flask原生不支持数据库访问、Web表单验证、用户身份验证等高级功能。这些功能以及其他大多数Web应用需要的核心服务都以扩展的形式实现，然后再与核心包集成。
+
+#### 路由及调试
 
 ##### 一个完整的应用（路由的定义）
 
@@ -101,5 +103,136 @@ def get_user(id):
     if not user:
         abort(404) # 注意，abort()不会把控制权交还给调用它的函数，而是抛出异常。
        return '<h1>Hello, {}</h1>'.format(user.name）      
+```
+
+#### 模板
+
+模版是包含响应文本的文件，其中包含用占位变量表示的动态部分，其具体值只在请求的上下文中才能知道。用真实值替换变量，再返回最终得到的响应字符串，这个过程称为渲染。
+
+##### 定义模板
+
+1.变量
+
+Flask使用一个名为Jinja2的强大模板引擎。模板使用的{{ name }}结构表示一个变量，这是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模板时使用的数据中获取。Jinja2能识别所有类型的变量，如列表、字典和对象。
+
+```
+<p>A value from a dictionary: {{ mydict['key'] }}.</p>
+<p>A value from a list: {{ mylist[3] }}.</p>
+<p>A value from a list,with a variable index: {{ mylist[myintvar] }}.</p>
+<p>A value from an object's method: {{ myobj.somemethod() }}.</p>
+
+Hello,{{ name|capitalize }} #变量值可以用过滤器修改。过滤器加在变量名之后，二者之间以竖线分隔。
+```
+
+2.控制结构
+
+```
+条件判断语句：
+{% if user %}
+    Hello, {{ user }}!
+{% else %}
+    Hello, Stranger!
+{% endif %}
+
+for循环：
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment }}</li>
+    {% endfor %}
+</ul>
+```
+
+多次重复使用模板代码的片段可以写入单独的文件，再引入所有模板中，以避免重复：
+
+{% include 'common.html' %}
+
+另一种重复使用代码的方式是模板继承。先创建一个base.html的基模板。基模板中定义的区块可在衍生模板中覆盖。
+
+{% extends "base.html" %}
+
+.....
+
+extends指令声明这个模板衍生自base.html。在extends指令之后，基模板的3个区块被重新定义，模板引擎会将其插入适当的位置。在衍生模板的区块里可以调用super()，引用基模板中同名区块里的内容。
+
+3.自定义错误页面
+
+```
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
+```
+
+4.链接
+
+Flask提供了url_for()辅助函数，它使用应用的URL映射中保存的信息生成URL。url_for()的用法是以视图函数名作为参数，返回对应的URL。url_for('index')得到的结果是/，即应用的根URL。url_for('user',name='john',_external=True)返回结果是http://localhost:5000/user/john。
+
+url_for('user',name='john',page=2,version=1)返回结果是/user/john?page=2&version=1。
+
+##### 模板与静态文件
+
+Flask是在应用目录中的templates子目录里寻找模板。因此需要新建templates子目录，再把前面定义的模板保存在里面。
+
+```
+from flask import Flask,render_template
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html', name=name)
+```
+
+Flask在应用根目录中名为static的子目录里寻找静态文件。因此需要新建static子目录。在URL映射时，有一个Flask为了支持静态文件自动添加的static路由，这个URL是/static/<filename>。
+
+调用url_for('static',filename='css/style.css',_external=True)得到的结果是http://localhost:5000/static/css/style.css。
+
+```
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+    type="image/x-icon">
+{% endblock %}
+```
+
+##### 模板相关的扩展
+
+###### 1.Flask-Bootstrap
+
+Bootstrap是Twitter开发的一个开源Web框架，是客户端框架。它提供的用户界面组件可用于创建整洁有吸引力的网页。
+
+```
+from flask_bootstrap import Bootstrap
+# ...
+bootstrap = Bootstrap(app)
+```
+
+###### 2.Flask-Moment
+
+Moment.js可以在浏览器中渲染日期和时间。
+
+```
+# 首先在base.html中引入Moment.js库
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+# 在index.html使用Flask-Moment渲染时间戳
+<P>The local date and time is {{ moment(current_time).format('LLL') }}.</p>
+<p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
+```
+
+在hello.py中初始化Flask-Moment
+
+```
+from flask_moment import Moment
+from datetime import datetime
+moment = Moment(app)
+@app.route('/')
+def index():
+    return render_template('index.html',current_time=datetime.utcnow())
 ```
 
