@@ -144,11 +144,15 @@ for循环：
 
 多次重复使用模板代码的片段可以写入单独的文件，再引入所有模板中，以避免重复：
 
+```
 {% include 'common.html' %}
+```
 
 另一种重复使用代码的方式是模板继承。先创建一个base.html的基模板。基模板中定义的区块可在衍生模板中覆盖。
 
+```
 {% extends "base.html" %}
+```
 
 .....
 
@@ -167,9 +171,12 @@ def internal_server_error(e):
 
 4.链接
 
-Flask提供了url_for()辅助函数，它使用应用的URL映射中保存的信息生成URL。url_for()的用法是以视图函数名作为参数，返回对应的URL。url_for('index')得到的结果是/，即应用的根URL。url_for('user',name='john',_external=True)返回结果是http://localhost:5000/user/john。
+Flask提供了url_for()辅助函数，它使用应用的URL映射中保存的信息生成URL。url_for()的用法是以视图函数名作为参数，返回对应的URL。url_for('index')得到的结果是/，即应用的根URL。
 
+```
+url_for('user',name='john',_external=True)返回结果是http://localhost:5000/user/john。
 url_for('user',name='john',page=2,version=1)返回结果是/user/john?page=2&version=1。
+```
 
 ##### 模板与静态文件
 
