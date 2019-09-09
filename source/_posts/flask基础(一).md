@@ -1,5 +1,5 @@
 ---
-title: flask基础
+title: flask基础(一)
 date: 2019-09-07 21:56:31
 categories: 技术
 tags: 基础
