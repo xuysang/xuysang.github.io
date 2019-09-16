@@ -127,10 +127,10 @@ ORM：对象关系映射器，把高层的面向对象操作转换成低层的�
 
 SQLAlchemy是一个强大的关系型数据库框架，支持多种数据库后台。SQLAlchemy提供了高层ORM，也提供了使用数据库原生SQL的低层功能。Flask-SQLAlchemy是一个Flask扩展，简化了在Flask应用中使用SQLAlchemy的操作。
 
-##### 配置数据库（以mysql为例）
+##### 配置数据库
 
 | 数据库引擎 | URL                                              |
-| ---------- | ------------------------------------------------ |
+| :--------- | ------------------------------------------------ |
 | MySQL      | mysql://username:password@hostname/database      |
 | Postgres   | postgresql://username:password@hostname/database |
 | SQLite     | sqlite:////absolute/path/to/database             |
@@ -138,6 +138,7 @@ SQLAlchemy是一个强大的关系型数据库框架，支持多种数据库后�
 hostname表示数据库服务所在的主机，可以是本地主机，也可以是远程服务器。数据库服务器上可以托管多个数据库，因此需要database表示要使用的数据库名。
 
 ```
+# 以mysql为例
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 
