@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="学习知识点掌握（重要） 1.python框架：Flask、tornado框架和库有什么区别？什么是库什么是模块（module）generate迭代器yield协程单元测试Flask:proxy有什么用WSGI协议Tornado:Ioloop怎么实现异步什么意思非阻塞c10k问题元类/ORM装饰器2.Linux操作系统进程/线程进程：一段代码数据栈线程内核级线程用户线程内存/虚存CPU、内核内核态用">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本功">
+<meta property="og:url" content="http://yoursite.com/2019/10/06/基本功/index.html">
+<meta property="og:site_name" content="雨中站在树上唱rap">
+<meta property="og:description" content="学习知识点掌握（重要） 1.python框架：Flask、tornado框架和库有什么区别？什么是库什么是模块（module）generate迭代器yield协程单元测试Flask:proxy有什么用WSGI协议Tornado:Ioloop怎么实现异步什么意思非阻塞c10k问题元类/ORM装饰器2.Linux操作系统进程/线程进程：一段代码数据栈线程内核级线程用户线程内存/虚存CPU、内核内核态用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-06T03:26:55.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基本功">
+<meta name="twitter:description" content="学习知识点掌握（重要） 1.python框架：Flask、tornado框架和库有什么区别？什么是库什么是模块（module）generate迭代器yield协程单元测试Flask:proxy有什么用WSGI协议Tornado:Ioloop怎么实现异步什么意思非阻塞c10k问题元类/ORM装饰器2.Linux操作系统进程/线程进程：一段代码数据栈线程内核级线程用户线程内存/虚存CPU、内核内核态用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/06/基本功/">
+
+
+
+
+
+  <title>基本功 | 雨中站在树上唱rap</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨中站在树上唱rap</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/06/基本功/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuys">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨中站在树上唱rap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基本功</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-06T11:25:21+08:00">
+                2019-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/综合/" itemprop="url" rel="index">
+                    <span itemprop="name">综合</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习知识点掌握（重要）</p>
+<h4 id="1-python"><a href="#1-python" class="headerlink" title="1.python"></a>1.python</h4><h5 id="框架："><a href="#框架：" class="headerlink" title="框架："></a>框架：</h5><h6 id="Flask、tornado"><a href="#Flask、tornado" class="headerlink" title="Flask、tornado"></a>Flask、tornado</h6><h6 id="框架和库有什么区别？"><a href="#框架和库有什么区别？" class="headerlink" title="框架和库有什么区别？"></a>框架和库有什么区别？</h6><h6 id="什么是库什么是模块（module）"><a href="#什么是库什么是模块（module）" class="headerlink" title="什么是库什么是模块（module）"></a>什么是库什么是模块（module）</h6><h6 id="generate迭代器"><a href="#generate迭代器" class="headerlink" title="generate迭代器"></a>generate迭代器</h6><h6 id="yield协程"><a href="#yield协程" class="headerlink" title="yield协程"></a>yield协程</h6><h6 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h6><h5 id="Flask"><a href="#Flask" class="headerlink" title="Flask:"></a>Flask:</h5><h6 id="proxy有什么用"><a href="#proxy有什么用" class="headerlink" title="proxy有什么用"></a>proxy有什么用</h6><h6 id="WSGI协议"><a href="#WSGI协议" class="headerlink" title="WSGI协议"></a>WSGI协议</h6><h5 id="Tornado"><a href="#Tornado" class="headerlink" title="Tornado:"></a>Tornado:</h5><h6 id="Ioloop怎么实现"><a href="#Ioloop怎么实现" class="headerlink" title="Ioloop怎么实现"></a>Ioloop怎么实现</h6><h6 id="异步什么意思"><a href="#异步什么意思" class="headerlink" title="异步什么意思"></a>异步什么意思</h6><h6 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h6><h6 id="c10k问题"><a href="#c10k问题" class="headerlink" title="c10k问题"></a>c10k问题</h6><h6 id="元类-ORM"><a href="#元类-ORM" class="headerlink" title="元类/ORM"></a>元类/ORM</h6><h6 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h6><h4 id="2-Linux操作系统"><a href="#2-Linux操作系统" class="headerlink" title="2.Linux操作系统"></a>2.Linux操作系统</h4><h5 id="进程-线程"><a href="#进程-线程" class="headerlink" title="进程/线程"></a>进程/线程</h5><h5 id="进程："><a href="#进程：" class="headerlink" title="进程："></a>进程：</h5><h6 id="一段代码"><a href="#一段代码" class="headerlink" title="一段代码"></a>一段代码</h6><h6 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h6><h6 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h6><h5 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h5><h6 id="内核级线程"><a href="#内核级线程" class="headerlink" title="内核级线程"></a>内核级线程</h6><h6 id="用户线程"><a href="#用户线程" class="headerlink" title="用户线程"></a>用户线程</h6><h5 id="内存-虚存"><a href="#内存-虚存" class="headerlink" title="内存/虚存"></a>内存/虚存</h5><h5 id="CPU、内核"><a href="#CPU、内核" class="headerlink" title="CPU、内核"></a>CPU、内核</h5><h5 id="内核态"><a href="#内核态" class="headerlink" title="内核态"></a>内核态</h5><h5 id="用户态"><a href="#用户态" class="headerlink" title="用户态"></a>用户态</h5><h4 id="3-数据结构与算法"><a href="#3-数据结构与算法" class="headerlink" title="3.数据结构与算法"></a>3.数据结构与算法</h4><h5 id="十种排序："><a href="#十种排序：" class="headerlink" title="十种排序："></a>十种排序：</h5><h5 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h5><h5 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h5><h5 id="希尔"><a href="#希尔" class="headerlink" title="希尔"></a>希尔</h5><h5 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h5><h5 id="桶排"><a href="#桶排" class="headerlink" title="桶排"></a>桶排</h5><h5 id="树"><a href="#树" class="headerlink" title="树"></a>树</h5><h5 id="二叉树（反转二叉树）"><a href="#二叉树（反转二叉树）" class="headerlink" title="二叉树（反转二叉树）"></a>二叉树（反转二叉树）</h5><h5 id="平衡树-完全树-红黑树"><a href="#平衡树-完全树-红黑树" class="headerlink" title="平衡树 完全树 红黑树"></a>平衡树 完全树 红黑树</h5><h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><h5 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h5><h5 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h5><h4 id="4-mysql"><a href="#4-mysql" class="headerlink" title="4.mysql"></a>4.mysql</h4><h4 id="5-Redis"><a href="#5-Redis" class="headerlink" title="5.Redis"></a>5.Redis</h4><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5><h5 id="支持哪些应用"><a href="#支持哪些应用" class="headerlink" title="支持哪些应用"></a>支持哪些应用</h5><h4 id="6-消息队列-异步"><a href="#6-消息队列-异步" class="headerlink" title="6.消息队列/异步"></a>6.消息队列/异步</h4><h4 id="7-git用法（add、commit、push、pull、fetch）"><a href="#7-git用法（add、commit、push、pull、fetch）" class="headerlink" title="7.git用法（add、commit、push、pull、fetch）"></a>7.git用法（add、commit、push、pull、fetch）</h4><h4 id="8-通信协议"><a href="#8-通信协议" class="headerlink" title="8.通信协议"></a>8.通信协议</h4><h5 id="7层"><a href="#7层" class="headerlink" title="7层"></a>7层</h5><h5 id="TCP（三次、四次）"><a href="#TCP（三次、四次）" class="headerlink" title="TCP（三次、四次）"></a>TCP（三次、四次）</h5><h5 id="UBP"><a href="#UBP" class="headerlink" title="UBP"></a>UBP</h5><h4 id="9-持续集成"><a href="#9-持续集成" class="headerlink" title="9.持续集成"></a>9.持续集成</h4><h5 id="CI"><a href="#CI" class="headerlink" title="CI"></a>CI</h5><h5 id="Jckins"><a href="#Jckins" class="headerlink" title="Jckins"></a>Jckins</h5><h4 id="10-docker"><a href="#10-docker" class="headerlink" title="10.docker"></a>10.docker</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/19/JacaScript笔记/" rel="next" title="JacaScript笔记">
+                <i class="fa fa-chevron-left"></i> JacaScript笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xuys</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-python"><span class="nav-number">1.</span> <span class="nav-text">1.python</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#框架："><span class="nav-number">1.1.</span> <span class="nav-text">框架：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Flask、tornado"><span class="nav-number">1.1.1.</span> <span class="nav-text">Flask、tornado</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#框架和库有什么区别？"><span class="nav-number">1.1.2.</span> <span class="nav-text">框架和库有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#什么是库什么是模块（module）"><span class="nav-number">1.1.3.</span> <span class="nav-text">什么是库什么是模块（module）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#generate迭代器"><span class="nav-number">1.1.4.</span> <span class="nav-text">generate迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#yield协程"><span class="nav-number">1.1.5.</span> <span class="nav-text">yield协程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#单元测试"><span class="nav-number">1.1.6.</span> <span class="nav-text">单元测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Flask"><span class="nav-number">1.2.</span> <span class="nav-text">Flask:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#proxy有什么用"><span class="nav-number">1.2.1.</span> <span class="nav-text">proxy有什么用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#WSGI协议"><span class="nav-number">1.2.2.</span> <span class="nav-text">WSGI协议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tornado"><span class="nav-number">1.3.</span> <span class="nav-text">Tornado:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Ioloop怎么实现"><span class="nav-number">1.3.1.</span> <span class="nav-text">Ioloop怎么实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异步什么意思"><span class="nav-number">1.3.2.</span> <span class="nav-text">异步什么意思</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#非阻塞"><span class="nav-number">1.3.3.</span> <span class="nav-text">非阻塞</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#c10k问题"><span class="nav-number">1.3.4.</span> <span class="nav-text">c10k问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#元类-ORM"><span class="nav-number">1.3.5.</span> <span class="nav-text">元类/ORM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#装饰器"><span class="nav-number">1.3.6.</span> <span class="nav-text">装饰器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Linux操作系统"><span class="nav-number">2.</span> <span class="nav-text">2.Linux操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进程-线程"><span class="nav-number">2.1.</span> <span class="nav-text">进程/线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#进程："><span class="nav-number">2.2.</span> <span class="nav-text">进程：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一段代码"><span class="nav-number">2.2.1.</span> <span class="nav-text">一段代码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#数据"><span class="nav-number">2.2.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#栈"><span class="nav-number">2.2.3.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程"><span class="nav-number">2.3.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#内核级线程"><span class="nav-number">2.3.1.</span> <span class="nav-text">内核级线程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#用户线程"><span class="nav-number">2.3.2.</span> <span class="nav-text">用户线程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内存-虚存"><span class="nav-number">2.4.</span> <span class="nav-text">内存/虚存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU、内核"><span class="nav-number">2.5.</span> <span class="nav-text">CPU、内核</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内核态"><span class="nav-number">2.6.</span> <span class="nav-text">内核态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用户态"><span class="nav-number">2.7.</span> <span class="nav-text">用户态</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据结构与算法"><span class="nav-number">3.</span> <span class="nav-text">3.数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#十种排序："><span class="nav-number">3.1.</span> <span class="nav-text">十种排序：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快排"><span class="nav-number">3.2.</span> <span class="nav-text">快排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#堆排"><span class="nav-number">3.3.</span> <span class="nav-text">堆排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#希尔"><span class="nav-number">3.4.</span> <span class="nav-text">希尔</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#冒泡"><span class="nav-number">3.5.</span> <span class="nav-text">冒泡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#桶排"><span class="nav-number">3.6.</span> <span class="nav-text">桶排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#树"><span class="nav-number">3.7.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二叉树（反转二叉树）"><span class="nav-number">3.8.</span> <span class="nav-text">二叉树（反转二叉树）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#平衡树-完全树-红黑树"><span class="nav-number">3.9.</span> <span class="nav-text">平衡树 完全树 红黑树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链表"><span class="nav-number">3.10.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#递归"><span class="nav-number">3.11.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态规划"><span class="nav-number">3.12.</span> <span class="nav-text">动态规划</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-mysql"><span class="nav-number">4.</span> <span class="nav-text">4.mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Redis"><span class="nav-number">5.</span> <span class="nav-text">5.Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现原理"><span class="nav-number">5.1.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#支持哪些应用"><span class="nav-number">5.2.</span> <span class="nav-text">支持哪些应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-消息队列-异步"><span class="nav-number">6.</span> <span class="nav-text">6.消息队列/异步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-git用法（add、commit、push、pull、fetch）"><span class="nav-number">7.</span> <span class="nav-text">7.git用法（add、commit、push、pull、fetch）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-通信协议"><span class="nav-number">8.</span> <span class="nav-text">8.通信协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#7层"><span class="nav-number">8.1.</span> <span class="nav-text">7层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP（三次、四次）"><span class="nav-number">8.2.</span> <span class="nav-text">TCP（三次、四次）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UBP"><span class="nav-number">8.3.</span> <span class="nav-text">UBP</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-持续集成"><span class="nav-number">9.</span> <span class="nav-text">9.持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CI"><span class="nav-number">9.1.</span> <span class="nav-text">CI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jckins"><span class="nav-number">9.2.</span> <span class="nav-text">Jckins</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-docker"><span class="nav-number">10.</span> <span class="nav-text">10.docker</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuys</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
