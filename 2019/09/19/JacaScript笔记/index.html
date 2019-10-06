@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="想认真开始写博客，是看了阮一峰老师的博客后激发的动力，有质量的文章经年累月累积起来，想想也是很不错的。最近很想了解关于前端的一些基础知识。在网上稍稍了解了html和css后，翻到了阮老师推荐javascript书籍的文章，第一本就是DOM Scripting。看到老师的大力推荐，难免也有心想好好阅读一下，300页的书，算不上多，经过十几天的阅读，终于看完。文中Jeremy Keith对DOM和Ja">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JacaScript笔记">
+<meta property="og:url" content="http://yoursite.com/2019/09/19/JacaScript笔记/index.html">
+<meta property="og:site_name" content="雨中站在树上唱rap">
+<meta property="og:description" content="想认真开始写博客，是看了阮一峰老师的博客后激发的动力，有质量的文章经年累月累积起来，想想也是很不错的。最近很想了解关于前端的一些基础知识。在网上稍稍了解了html和css后，翻到了阮老师推荐javascript书籍的文章，第一本就是DOM Scripting。看到老师的大力推荐，难免也有心想好好阅读一下，300页的书，算不上多，经过十几天的阅读，终于看完。文中Jeremy Keith对DOM和Ja">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-06T02:58:57.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JacaScript笔记">
+<meta name="twitter:description" content="想认真开始写博客，是看了阮一峰老师的博客后激发的动力，有质量的文章经年累月累积起来，想想也是很不错的。最近很想了解关于前端的一些基础知识。在网上稍稍了解了html和css后，翻到了阮老师推荐javascript书籍的文章，第一本就是DOM Scripting。看到老师的大力推荐，难免也有心想好好阅读一下，300页的书，算不上多，经过十几天的阅读，终于看完。文中Jeremy Keith对DOM和Ja">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/19/JacaScript笔记/">
+
+
+
+
+
+  <title>JacaScript笔记 | 雨中站在树上唱rap</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨中站在树上唱rap</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/19/JacaScript笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuys">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨中站在树上唱rap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JacaScript笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T23:39:25+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>想认真开始写博客，是看了阮一峰老师的博客后激发的动力，有质量的文章经年累月累积起来，想想也是很不错的。最近很想了解关于前端的一些基础知识。在网上稍稍了解了html和css后，翻到了阮老师推荐javascript书籍的文章，第一本就是DOM Scripting。看到老师的大力推荐，难免也有心想好好阅读一下，300页的书，算不上多，经过十几天的阅读，终于看完。文中Jeremy Keith对DOM和Javascript的介绍，他的思路以及讲解方式，都有值得记录和学习的地方。</p>
+<p><strong>阅读本书感受最深的一点是作为门外汉，在看本书时不会有知识隔阂，不会明显的感受到知识断层。作者用他的耐心、清晰的思路架构、详略得当的知识点分布为本书的内容铺下了台阶，只要顺着向上走即可。</strong></p>
+<p>我想分成两块内容来写，一块是对作者在这本书中传递的思想的剖析，一块是对前端基础知识的一些摘抄。</p>
+<h5 id="一：作者是如何讲解的"><a href="#一：作者是如何讲解的" class="headerlink" title="一：作者是如何讲解的"></a>一：作者是如何讲解的</h5><h6 id="1-由浅入深"><a href="#1-由浅入深" class="headerlink" title="1.由浅入深"></a>1.由浅入深</h6><p>作者首先介绍了JavaScript的语法，每在对具体的知识展开之前，作者会先将术语和概念做一个解释，例如何为语法，何为语句，何为变量，何为操作，何为函数，何为对象。在解释之后，再对具体的知识进行讲述。阅读起来就有条理性容易接受。在每章最后作者还会做个总结，起到很好的回顾作用。</p>
+<p>在介绍完最基础的语法后，作者开始对DOM进行介绍。同样，他也是由点及面的铺展，清晰地描述了DOM及DOM中常用的方法。</p>
+<p>再接着，作者通过一个可上手的案例，结合之前讲的内容，打造了一个网页的雏形，同时又在其中增添了不少js的介绍。</p>
+<p>作者会提出他自己倡导的一些编程原则和优良习惯。进而对这个原则和习惯做详细的解释。在此之后就是针对这些原则和习惯，结合实例对之前的代码进行改进。</p>
+<h6 id="2-先理思路，后编写"><a href="#2-先理思路，后编写" class="headerlink" title="2.先理思路，后编写"></a>2.先理思路，后编写</h6><p>在细到每个章节时，作者总会先阐明他要做什么，如何实现要做的内容，通过哪些方式可以实现。然后罗列出具体的步骤，最后是写出语句。</p>
+<h6 id="3-几个有用思路的归纳"><a href="#3-几个有用思路的归纳" class="headerlink" title="3.几个有用思路的归纳"></a>3.几个有用思路的归纳</h6><h6 id="4-几个实用例子用法的总结"><a href="#4-几个实用例子用法的总结" class="headerlink" title="4.几个实用例子用法的总结"></a>4.几个实用例子用法的总结</h6><h5 id="二：基础知识点总结"><a href="#二：基础知识点总结" class="headerlink" title="二：基础知识点总结"></a>二：基础知识点总结</h5><h6 id="1-基础语法"><a href="#1-基础语法" class="headerlink" title="1.基础语法"></a>1.基础语法</h6><p><strong>注释</strong>：单行可以使用两个斜杠作为开头，// Note to self：comment are good.（等同与HTML的注释，“&lt;!-”）</p>
+<p>跨多行的注释在整段注释内容开头加上<code>/*</code>，在整段末尾加上<code>*/</code>          </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* Note to self:</span><br><span class="line">   comments are good  */</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据类型</strong>：</p>
+<p>离散值（在任意时刻只能有一个值）：字符串、数值、布尔值</p>
+<p>由名字相同的多个值构成的一个集合：数组，关键字Array     例：var beatles = Array(4)</p>
+<p><strong>函数</strong>：一组允许人们在代码里随时调用的语句。每当需要反复执行一段代码，可以利用函数来避免重复输入大量的相同内容。此外，把不同的数据（参数）传递给函数，它们将使用实际传递给它们的数据去完成预定的操作。</p>
+<p><strong>全局变量和局部变量</strong>：全局变量可以在脚本中的任何位置被引用，它的作用域是整个脚本。局部变量只存在于对它做出声明的那个函数的内部，作用域仅限于某个特定的函数，函数外部是无法引用的。可以用var关键字为变量设定作用域，如果在某个函数中使用了var，那个变量就被视为一个局部变量，如果没有使用，那个变量就被视为全局变量。</p>
+<p><strong>对象</strong>：一种非常重要的数据类型。对象是自我包含的数据集合，包含在对象里的数据可以通过两种形式——属性（property）和方法（method）访问。属性是隶属于某个特定对象的变量。方法是只有某个特定对象才能调用的函数。对象就是由一些彼此相关的属性和方法集合在一起而构成的一个数据实体。属性和方法都需要用“.”来访问。</p>
+<p><strong>节点</strong>：（DOM里存在不同类型的节点，有些节点类型还包含其他类型的节点）</p>
+<p>元素节点：<code>&lt;body&gt;、&lt;p&gt;、&lt;ul&gt;</code>之类，这些元素在文档中的布局形成了文档的结构。元素包含其他元素，唯一没有被包含在其他元素里的唯一元素是<code>&lt;html&gt;</code>元素，它是节点数的根元素。</p>
+<p>文本节点：例如<code>&lt;p&gt;</code>元素包含着的文本就是一个文本节点。但并非所有元素节点都包含有文本节点。</p>
+<p>属性节点：元素或多或少有一些属性。属性的作用是对元素做出更具体的描述。例如几乎所有的元素都有一个title属性。因为属性总是被放在起始标签里，所以属性节点总是被包含在元素节点中。</p>
+<p><strong>在需要对文档的现有信息进行检索时：</strong></p>
+<p>getElementById()：根据id返回一个对象，document.getElementById(id)；</p>
+<p>getElementsByTagName()：根据元素名字返回一个数组，element.getElementsByTagName(tag)；</p>
+<p>getAttribute()：获取元素属性的值，object.getAttribute(attribute)；</p>
+<p><strong>在需要把信息添加到文档里去时：</strong></p>
+<p>createElement()：按照给定的标签名创建新的元素节点。document.createElement(element)</p>
+<p>createTextNode()：创建一个包含着给定文本的新文本节点。document.createTextNode(text)</p>
+<p>appendChild()：给元素节点追加一个子节点。element.appendChild(newChild)</p>
+<p>insertBefore()：把一个给定节点插入到一个给定元素节点的给定子节点的前面。element.insertBefore(newNode,targetNode)</p>
+<p>setAttribute()：设置某个元素的属性值，object.setAttribute(attribute,value)；</p>
+<p>最适合用于浏览器查看的尺寸，400像素宽*300像素高</p>
+<p>事件处理函数：event = “JavaScript statement(s)”</p>
+<p>循序渐进progressive enhancement：从最核心的内容开始，逐步添加额外的功能。先用标记语言给核心内容加上正确的标记以使其获得正确的结构；然后再逐步充实被加上了正确标记的内容。充实的内容既可以是通过CSS样式表实现各种呈现效果，也可以是通过DOM脚步添加各种操作行为。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/13/flask基础(二.)md/" rel="next" title="flask基础(二)">
+                <i class="fa fa-chevron-left"></i> flask基础(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xuys</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一：作者是如何讲解的"><span class="nav-number">1.</span> <span class="nav-text">一：作者是如何讲解的</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-由浅入深"><span class="nav-number">1.1.</span> <span class="nav-text">1.由浅入深</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-先理思路，后编写"><span class="nav-number">1.2.</span> <span class="nav-text">2.先理思路，后编写</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-几个有用思路的归纳"><span class="nav-number">1.3.</span> <span class="nav-text">3.几个有用思路的归纳</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-几个实用例子用法的总结"><span class="nav-number">1.4.</span> <span class="nav-text">4.几个实用例子用法的总结</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二：基础知识点总结"><span class="nav-number">2.</span> <span class="nav-text">二：基础知识点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-基础语法"><span class="nav-number">2.1.</span> <span class="nav-text">1.基础语法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuys</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
