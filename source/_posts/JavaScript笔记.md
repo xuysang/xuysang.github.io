@@ -1,5 +1,5 @@
 ---
-title: JacaScript笔记
+title: JavaScript笔记
 date: 2019-09-19 23:39:25
 categories: 技术
 tags: 基础
