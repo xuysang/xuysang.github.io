@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="flask优点：轻巧、可扩展性 flask依赖flask的基础从它三个依赖说起。第一个是路由，调试和WSGI（web服务器网关接口）子系统，由Werkzeug提供；第二个是模版系统由Jinja2提供；第三个是命令行集成，由Click提供。这些依赖，是Flask开发者Armin Ronacher开发的。Flask原生不支持数据库访问、Web表单验证、用户身份验证等高级功能。这些功能以及其他大多数We">
+<meta name="keywords" content="基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flask基础">
+<meta property="og:url" content="http://yoursite.com/2019/09/07/flask基础/index.html">
+<meta property="og:site_name" content="雨中站在树上唱rap">
+<meta property="og:description" content="flask优点：轻巧、可扩展性 flask依赖flask的基础从它三个依赖说起。第一个是路由，调试和WSGI（web服务器网关接口）子系统，由Werkzeug提供；第二个是模版系统由Jinja2提供；第三个是命令行集成，由Click提供。这些依赖，是Flask开发者Armin Ronacher开发的。Flask原生不支持数据库访问、Web表单验证、用户身份验证等高级功能。这些功能以及其他大多数We">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-08T10:20:25.996Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flask基础">
+<meta name="twitter:description" content="flask优点：轻巧、可扩展性 flask依赖flask的基础从它三个依赖说起。第一个是路由，调试和WSGI（web服务器网关接口）子系统，由Werkzeug提供；第二个是模版系统由Jinja2提供；第三个是命令行集成，由Click提供。这些依赖，是Flask开发者Armin Ronacher开发的。Flask原生不支持数据库访问、Web表单验证、用户身份验证等高级功能。这些功能以及其他大多数We">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/07/flask基础/">
+
+
+
+
+
+  <title>flask基础 | 雨中站在树上唱rap</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨中站在树上唱rap</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hi</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/flask基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuys">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨中站在树上唱rap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">flask基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-07T21:56:31+08:00">
+                2019-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>flask优点：轻巧、可扩展性</strong></p>
+<h3 id="flask依赖"><a href="#flask依赖" class="headerlink" title="flask依赖"></a>flask依赖</h3><p>flask的基础从它三个依赖说起。第一个是路由，调试和WSGI（web服务器网关接口）子系统，由<a href="https://werkzeug-docs-cn.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">Werkzeug</a>提供；第二个是模版系统由<a href="http://docs.jinkan.org/docs/jinja2/" target="_blank" rel="noopener">Jinja2</a>提供；第三个是命令行集成，由<a href="https://click-docs-zh-cn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">Click</a>提供。这些依赖，是Flask开发者Armin Ronacher开发的。Flask原生不支持数据库访问、Web表单验证、用户身份验证等高级功能。这些功能以及其他大多数Web应用需要的核心服务都以扩展的形式实现，然后再与核心包集成。</p>
+<h4 id="路由及调试"><a href="#路由及调试" class="headerlink" title="路由及调试"></a>路由及调试</h4><h5 id="一个完整的应用（路由的定义）"><a href="#一个完整的应用（路由的定义）" class="headerlink" title="一个完整的应用（路由的定义）"></a>一个完整的应用（路由的定义）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">@app.route(&apos;/&apos;)   #装饰器定义路由</span><br><span class="line">def index():      #视图函数</span><br><span class="line">    return &apos;&lt;h1&gt;Hello world&lt;/h1&gt;&apos;  #函数返回值为响应</span><br><span class="line">    </span><br><span class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)   #动态路由</span><br><span class="line">def user(name):</span><br><span class="line">    return &apos;&lt;h1&gt;Hello,&#123;&#125;!&lt;/h1&gt;&apos;.format(name) #动态参数</span><br></pre></td></tr></table></figure>
+
+<h5 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h5><p>flask应用可以在调试模式中运行。在这个模式下会加载重载器和调试器。启用重载器后，Flask会监视项目的所有源码文件，发生变动时自动重启服务器，每次修改并保存源码文件后，服务器会自动重启，让改动生效。</p>
+<p>调试器是一个基于Web的工具，当应用抛出来未处理的异常时，它会出现在浏览器中，这时Web浏览器变成一个交互式栈跟踪，可以在里面审查源码，在调用栈的任何位置计算表达式。</p>
+<h5 id="启用服务器"><a href="#启用服务器" class="headerlink" title="启用服务器"></a>启用服务器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export FLASK_APP=hello.py</span><br><span class="line">export FLASK_DEBUG=1</span><br><span class="line">flask run --host 0.0.0.0 --port 1234  </span><br><span class="line"># 任何计算机能通过http://a.b.c.d:5000访问Web服务器，其中a.b.c.d是运行服务器的计算机的IP地址。</span><br></pre></td></tr></table></figure>
+
+<h5 id="请求-响应循环"><a href="#请求-响应循环" class="headerlink" title="请求-响应循环"></a>请求-响应循环</h5><p>Flask从客户端收到请求，要让视图函数能访问一些对象，这样才能处理请求。<u>请求对象</u>封装了客户端发送的HTTP请求。为避免大量参数把视图函数弄得混乱，Flask用上下文临时把某些对象变成全局可访问。</p>
+<h5 id="上下文全局变量"><a href="#上下文全局变量" class="headerlink" title="上下文全局变量"></a>上下文全局变量</h5><table>
+<thead>
+<tr>
+<th align="left">变量名</th>
+<th>上下文</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">current_app</td>
+<td>应用上下文</td>
+<td>当前应用的应用实例</td>
+</tr>
+<tr>
+<td align="left">g</td>
+<td>应用上下文</td>
+<td>处理请求时用作临时存储的对象，每次请求都会重设这个变量</td>
+</tr>
+<tr>
+<td align="left">request</td>
+<td>请求上下文</td>
+<td>请求对象，封装了客户端发出的HTTP请求中的内容</td>
+</tr>
+<tr>
+<td align="left">session</td>
+<td>请求上下文</td>
+<td>用户会话，值为一个字典，存储请求之间需要”记住”的值</td>
+</tr>
+</tbody></table>
+<p><u>Flask在分派请求之前激活（或推送）应用和请求上下文，请求处理完成后再将其删除。如果使用这些变量时没有激活上下文，会导致错误。获取应用上下文的方法是在应用实例上调用app.app_context()</u></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from hello import app</span><br><span class="line">from flask import current_app</span><br><span class="line">app_ctx = app.app_context()</span><br><span class="line">app_ctx.push()</span><br><span class="line">name = current_app.name  #&apos;hello&apos;</span><br><span class="line">app_ctx.pop()</span><br></pre></td></tr></table></figure>
+
+<h5 id="请求钩子"><a href="#请求钩子" class="headerlink" title="请求钩子"></a>请求钩子</h5><p>有时在处理请求之前或之后执行代码。例如在请求开始时，需要创建数据库连接或者验证发起请求的用户身份。为了避免在每个视图函数中都重复编写代码，Flask提供了注册通用函数的功能。</p>
+<p>请求钩子通过装饰器实现。Flask支持4种钩子。</p>
+<ul>
+<li>before_request   注册一个函数，在每次请求之前运行。</li>
+<li>before_first_request  注册一个函数，只在处理第一个请求之前运行，可以用来添加服务器初始化任务。</li>
+<li>after_request  注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行。</li>
+<li>teardown_request 注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。</li>
+</ul>
+<h5 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h5><p>响应就是一个简单的字符串，作为HTML页面回送客户端。但是HTTP响应中一个很重要的部分时状态码，Flask默认设为200，表面请求已被成功处理。如果视图函数返回的响应需要使用不同的状态码，可以把数字代码作为第二个返回值，添加到响应文本之后。如返回400状态码，表示请求无效。</p>
+<p>响应有个特殊的类型，称为重定向。重定向的状态码通常是302。Flask提供redirect()用于生成这样响应。还有种特殊的响应由abort()函数生成，用于处理错误。状态码是404。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return &apos;&lt;h1&gt;Bad Request&lt;/h1&gt;&apos;, 400</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from flask import redirect,abort</span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">return redirect(&apos;http://www.example.com&apos;)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/user/&lt;id&gt;&apos;)</span><br><span class="line">def get_user(id):</span><br><span class="line">    user = load_user(id)</span><br><span class="line">    if not user:</span><br><span class="line">        abort(404) # 注意，abort()不会把控制权交还给调用它的函数，而是抛出异常。</span><br><span class="line">    return &apos;&lt;h1&gt;Hello, &#123;&#125;&lt;/h1&gt;&apos;.format(user.name）</span><br></pre></td></tr></table></figure>
+
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>模版是包含响应文本的文件，其中包含用占位变量表示的动态部分，其具体值只在请求的上下文中才能知道。用真实值替换变量，再返回最终得到的响应字符串，这个过程称为渲染。</p>
+<h5 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h5><p>1.变量</p>
+<p>Flask使用一个名为Jinja2的强大模板引擎。模板使用的结构表示一个变量，这是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模板时使用的数据中获取。Jinja2能识别所有类型的变量，如列表、字典和对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;A value from a dictionary: &#123;&#123; mydict[&apos;key&apos;] &#125;&#125;.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;A value from a list: &#123;&#123; mylist[3] &#125;&#125;.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;A value from a list,with a variable index: &#123;&#123; mylist[myintvar] &#125;&#125;.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;A value from an object&apos;s method: &#123;&#123; myobj.somemethod() &#125;&#125;.&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">#变量值可以用过滤器修改。过滤器加在变量名之后，二者之间以竖线分隔。</span><br><span class="line">Hello,&#123;&#123; name|capitalize &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.控制结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">条件判断语句：</span><br><span class="line">&#123;% if user %&#125;</span><br><span class="line">    Hello, &#123;&#123; user &#125;&#125;!</span><br><span class="line">&#123;% else %&#125;</span><br><span class="line">    Hello, Stranger!</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">for循环：</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &#123;% for comment in comments %&#125;</span><br><span class="line">        &lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<p>多次重复使用模板代码的片段可以写入单独的文件，再引入所有模板中，以避免重复：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include &apos;common.html&apos; %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另一种重复使用代码的方式是模板继承。先创建一个base.html的基模板。基模板中定义的区块可在衍生模板中覆盖。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>extends指令声明这个模板衍生自base.html。在extends指令之后，基模板的3个区块被重新定义，模板引擎会将其插入适当的位置。在衍生模板的区块里可以调用super()，引用基模板中同名区块里的内容。</p>
+<p>3.自定义错误页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@app.errorhandler(404)</span><br><span class="line">def page_not_found(e):</span><br><span class="line">    return render_template(&apos;404.html&apos;), 404</span><br><span class="line">@app.errorhandler(500)</span><br><span class="line">def internal_server_error(e):</span><br><span class="line">    return render_template(&apos;500.html&apos;), 500</span><br></pre></td></tr></table></figure>
+
+<p>4.链接</p>
+<p>Flask提供了url_for()辅助函数，它使用应用的URL映射中保存的信息生成URL。url_for()的用法是以视图函数名作为参数，返回对应的URL。url_for(‘index’)得到的结果是/，即应用的根URL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url_for(&apos;user&apos;,name=&apos;john&apos;,_external=True)返回结果是http://localhost:5000/user/john。</span><br><span class="line">url_for(&apos;user&apos;,name=&apos;john&apos;,page=2,version=1)返回结果是/user/john?page=2&amp;version=1。</span><br></pre></td></tr></table></figure>
+
+<h5 id="模板与静态文件"><a href="#模板与静态文件" class="headerlink" title="模板与静态文件"></a>模板与静态文件</h5><p>Flask是在应用目录中的templates子目录里寻找模板。因此需要新建templates子目录，再把前面定义的模板保存在里面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask,render_template</span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return render_template(&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</span><br><span class="line">def user(name):</span><br><span class="line">    return render_template(&apos;user.html&apos;, name=name)</span><br></pre></td></tr></table></figure>
+
+<p>Flask在应用根目录中名为static的子目录里寻找静态文件。因此需要新建static子目录。在URL映射时，有一个Flask为了支持静态文件自动添加的static路由，这个URL是/static/<filename>。</filename></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调用url_for(&apos;static&apos;,filename=&apos;css/style.css&apos;,_external=True)得到的结果是http://localhost:5000/static/css/style.css</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># base.html 定义收藏夹图标</span><br><span class="line">&#123;% block head %&#125;</span><br><span class="line">&#123;&#123; super() &#125;&#125;</span><br><span class="line">&lt;link rel=&quot;shortcut icon&quot; href=&quot;&#123;&#123; url_for(&apos;static&apos;, filename=&apos;favicon.ico&apos;) &#125;&#125;&quot;</span><br><span class="line">    type=&quot;image/x-icon&quot;&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="模板相关的扩展"><a href="#模板相关的扩展" class="headerlink" title="模板相关的扩展"></a>模板相关的扩展</h5><h6 id="1-Flask-Bootstrap"><a href="#1-Flask-Bootstrap" class="headerlink" title="1.Flask-Bootstrap"></a>1.Flask-Bootstrap</h6><p>Bootstrap是Twitter开发的一个开源Web框架，是客户端框架。它提供的用户界面组件可用于创建整洁有吸引力的网页。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from flask_bootstrap import Bootstrap</span><br><span class="line"># ...</span><br><span class="line">bootstrap = Bootstrap(app)</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-Flask-Moment"><a href="#2-Flask-Moment" class="headerlink" title="2.Flask-Moment"></a>2.Flask-Moment</h6><p>Moment.js可以在浏览器中渲染日期和时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 首先在base.html中引入Moment.js库</span><br><span class="line">&#123;% block scripts %&#125;</span><br><span class="line">&#123;&#123; super() &#125;&#125;</span><br><span class="line">&#123;&#123; moment.include_moment() &#125;&#125;</span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"># 在index.html使用Flask-Moment渲染时间戳</span><br><span class="line">&lt;P&gt;The local date and time is &#123;&#123; moment(current_time).format(&apos;LLL&apos;) &#125;&#125;.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;That was &#123;&#123; moment(current_time).fromNow(refresh=True) &#125;&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在hello.py中初始化Flask-Moment</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from flask_moment import Moment</span><br><span class="line">from datetime import datetime</span><br><span class="line">moment = Moment(app)</span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return render_template(&apos;index.html&apos;,current_time=datetime.utcnow())</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基础/" rel="tag"># 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/02/烦恼/" rel="next" title="烦恼">
+                <i class="fa fa-chevron-left"></i> 烦恼
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xuys</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#flask依赖"><span class="nav-number">1.</span> <span class="nav-text">flask依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由及调试"><span class="nav-number">1.1.</span> <span class="nav-text">路由及调试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一个完整的应用（路由的定义）"><span class="nav-number">1.1.1.</span> <span class="nav-text">一个完整的应用（路由的定义）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调试模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">调试模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启用服务器"><span class="nav-number">1.1.3.</span> <span class="nav-text">启用服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请求-响应循环"><span class="nav-number">1.1.4.</span> <span class="nav-text">请求-响应循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#上下文全局变量"><span class="nav-number">1.1.5.</span> <span class="nav-text">上下文全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请求钩子"><span class="nav-number">1.1.6.</span> <span class="nav-text">请求钩子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#响应"><span class="nav-number">1.1.7.</span> <span class="nav-text">响应</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板"><span class="nav-number">1.2.</span> <span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义模板"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义模板</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模板与静态文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">模板与静态文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#模板相关的扩展"><span class="nav-number">1.2.3.</span> <span class="nav-text">模板相关的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-Flask-Bootstrap"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">1.Flask-Bootstrap</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-Flask-Moment"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2.Flask-Moment</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuys</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
