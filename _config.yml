@@ -79,5 +79,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://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@github.com/xuysang/xuysang.github.io.git
+  repository: https://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@github.com/xuysang/xuysang.github.io.git
   branch: master
