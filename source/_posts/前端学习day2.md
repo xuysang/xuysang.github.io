@@ -36,7 +36,7 @@ tags: 学习
 
 
 
-### tabke表格标签
+### table表格标签
 
 table主要用于呈现格式化数据。表格是由行和列组成。
 
@@ -171,35 +171,41 @@ form表单标签是所有标签最核心标签之一。它是用来实现前后�
 </form>
 ```
 
-表单元素分为：
+#### 表单元素分为：
 
-input类：主要用来输入，或发出指令。
+##### input类：主要用来输入，或发出指令。
+
  type：text/password/radio/checkbox/file/button/image/submit/reset
-        a.text：单行文本输入框 type="text"可以不写，默认值。
 
-​		属性：placeholder（提示）/name（命名）/minlength和maxlength（最少/多输入的字								符个数）/disabled（失效）/value（默认值）/pattern（正则匹配）
+######  a.text：单行文本输入框 type="text"可以不写，默认值。
 
-​		b.password：密码框 属性与text一样
+​		属性：placeholder（提示）/name（命名）/minlength和maxlength（最少/多输入的字符个数）/disabled（失效）/value（默认值）/pattern（正则匹配）
 
-​		c.radio：单选钮，通常是两项以上。常用属性有：name（必须要有）/value/checked（选中）/disabled（失效）/readonly（只读）
+###### b.password：密码框 属性与text一样
 
-​		d.checkbox：复选框，可以用来选择0项、1项或多项。
+###### c.radio：单选钮，通常是两项以上。
+
+​		常用属性有：name（必须要有）/value/checked（选中）/disabled（失效）/readonly（只读）
+
+###### d.checkbox：复选框，可以用来选择0项、1项或多项。
 
 ​		常用属性：name（必须要有）/value/checked（选中）/disabled（失效）/readonly（只读）
 
-​		e.file（文件上传）
+###### e.file（文件上传）
 
-​		f.button：普通按钮，用它去调用脚本代码。
-
-​		常用属性：value（按钮的标题）/disabled（失效）
-
-​		g.image：图片按钮，用法与button一样。有一个特殊属性：src（用来加载提示图片，用它替换了value）它有提交功能，与submit功能一样。
-
-​		h.submit：提交按钮，用来将表单数据提交到后台。
+###### f.button：普通按钮，用它去调用脚本代码。
 
 ​		常用属性：value（按钮的标题）/disabled（失效）
 
-​		j.reset：重置按钮，将表单所有组件输入的内容全部清空，还原为初始状态。
+###### g.image：图片按钮，用法与button一样。
+
+​		有一个特殊属性：src（用来加载提示图片，用它替换了value）它有提交功能，与submit功能一样。
+
+###### h.submit：提交按钮，用来将表单数据提交到后台。
+
+​		常用属性：value（按钮的标题）/disabled（失效）
+
+###### j.reset：重置按钮，将表单所有组件输入的内容全部清空，还原为初始状态。
 
 ​		常用属性：value（按钮的标题）/disabled（失效）
 
@@ -235,7 +241,7 @@ input类：主要用来输入，或发出指令。
 </form>
 ```
 
-​	textarea类：文本域（也可以叫多行文本框），主要用于输入大批量的内容。
+##### 	textarea类：文本域（也可以叫多行文本框），主要用于输入大批量的内容。
 
 ​	常用属性：name/id/cols（列数）/rows（行数）/placeholder/minlength/maxlength/required（必须输入）/value
 
@@ -245,7 +251,7 @@ input类：主要用来输入，或发出指令。
 </form>
 ```
 
-​	select类：下拉列表框，默认用于单项选择。用option呈现每个选项。
+##### 	select类：下拉列表框，默认用于单项选择。用option呈现每个选项。
 
 ​	multiple属性：表示可以多选，这时的下拉列表框变成了列表框
 
@@ -268,7 +274,7 @@ input类：主要用来输入，或发出指令。
 </form>
 ```
 
-​	button类：普通按钮，具有提交功能。可以单独使用，不写在form元素中；如果写在form中，有提交功能
+##### 	button类：普通按钮，具有提交功能。可以单独使用，不写在form元素中；如果写在form中，有提交功能
 
 ```html
 <button id="btnOk">确认</button><!--这里的button主要用来调用js代码-->
