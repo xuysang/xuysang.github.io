@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"xuysang.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="学习知识点掌握（重要） 1.python框架：Flask、tornado框架和库有什么区别？什么是库什么是模块（module）generate迭代器yield协程单元测试Flask:proxy有什么用WSGI协议Tornado:Ioloop怎么实现异步什么意思非阻塞c10k问题元类&#x2F;ORM装饰器2.Linux操作系统进程&#x2F;线程进程：一段代码数据栈线程内核级线程用户线程内存&#x2F;虚存CPU、内核内核态用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本功">
+<meta property="og:url" content="https://xuysang.github.io/2019/10/06/%E5%9F%BA%E6%9C%AC%E5%8A%9F/index.html">
+<meta property="og:site_name" content="雨中站在树上唱rap">
+<meta property="og:description" content="学习知识点掌握（重要） 1.python框架：Flask、tornado框架和库有什么区别？什么是库什么是模块（module）generate迭代器yield协程单元测试Flask:proxy有什么用WSGI协议Tornado:Ioloop怎么实现异步什么意思非阻塞c10k问题元类&#x2F;ORM装饰器2.Linux操作系统进程&#x2F;线程进程：一段代码数据栈线程内核级线程用户线程内存&#x2F;虚存CPU、内核内核态用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-06T03:25:21.000Z">
+<meta property="article:modified_time" content="2026-02-26T07:11:33.907Z">
+<meta property="article:author" content="xuys">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://xuysang.github.io/2019/10/06/%E5%9F%BA%E6%9C%AC%E5%8A%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://xuysang.github.io/2019/10/06/%E5%9F%BA%E6%9C%AC%E5%8A%9F/","path":"2019/10/06/基本功/","title":"基本功"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基本功 | 雨中站在树上唱rap</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">雨中站在树上唱rap</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Hi</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-python"><span class="nav-number">1.</span> <span class="nav-text">1.python</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">框架：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Flask%E3%80%81tornado"><span class="nav-number">1.1.1.</span> <span class="nav-text">Flask、tornado</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6%E5%92%8C%E5%BA%93%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.2.</span> <span class="nav-text">框架和库有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%93%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97%EF%BC%88module%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">什么是库什么是模块（module）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#generate%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.1.4.</span> <span class="nav-text">generate迭代器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#yield%E5%8D%8F%E7%A8%8B"><span class="nav-number">1.1.5.</span> <span class="nav-text">yield协程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">1.1.6.</span> <span class="nav-text">单元测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Flask"><span class="nav-number">1.2.</span> <span class="nav-text">Flask:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#proxy%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">proxy有什么用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#WSGI%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">WSGI协议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tornado"><span class="nav-number">1.3.</span> <span class="nav-text">Tornado:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Ioloop%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">Ioloop怎么实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="nav-number">1.3.2.</span> <span class="nav-text">异步什么意思</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="nav-number">1.3.3.</span> <span class="nav-text">非阻塞</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#c10k%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.4.</span> <span class="nav-text">c10k问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%83%E7%B1%BB-ORM"><span class="nav-number">1.3.5.</span> <span class="nav-text">元类&#x2F;ORM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="nav-number">1.3.6.</span> <span class="nav-text">装饰器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">2.Linux操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">进程&#x2F;线程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">进程：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80%E6%AE%B5%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.1.</span> <span class="nav-text">一段代码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE"><span class="nav-number">2.2.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%88"><span class="nav-number">2.2.3.</span> <span class="nav-text">栈</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.3.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E7%BA%A7%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.3.1.</span> <span class="nav-text">内核级线程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.3.2.</span> <span class="nav-text">用户线程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%85%E5%AD%98-%E8%99%9A%E5%AD%98"><span class="nav-number">2.4.</span> <span class="nav-text">内存&#x2F;虚存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CPU%E3%80%81%E5%86%85%E6%A0%B8"><span class="nav-number">2.5.</span> <span class="nav-text">CPU、内核</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E6%80%81"><span class="nav-number">2.6.</span> <span class="nav-text">内核态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%80%81"><span class="nav-number">2.7.</span> <span class="nav-text">用户态</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">3.数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E7%A7%8D%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">十种排序：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BF%AB%E6%8E%92"><span class="nav-number">3.2.</span> <span class="nav-text">快排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A0%86%E6%8E%92"><span class="nav-number">3.3.</span> <span class="nav-text">堆排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B8%8C%E5%B0%94"><span class="nav-number">3.4.</span> <span class="nav-text">希尔</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%92%E6%B3%A1"><span class="nav-number">3.5.</span> <span class="nav-text">冒泡</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A1%B6%E6%8E%92"><span class="nav-number">3.6.</span> <span class="nav-text">桶排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">3.7.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88%E5%8F%8D%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89"><span class="nav-number">3.8.</span> <span class="nav-text">二叉树（反转二叉树）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E6%A0%91-%E5%AE%8C%E5%85%A8%E6%A0%91-%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">3.9.</span> <span class="nav-text">平衡树 完全树 红黑树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">3.10.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%92%E5%BD%92"><span class="nav-number">3.11.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">3.12.</span> <span class="nav-text">动态规划</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-mysql"><span class="nav-number">4.</span> <span class="nav-text">4.mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Redis"><span class="nav-number">5.</span> <span class="nav-text">5.Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8"><span class="nav-number">5.2.</span> <span class="nav-text">支持哪些应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-%E5%BC%82%E6%AD%A5"><span class="nav-number">6.</span> <span class="nav-text">6.消息队列&#x2F;异步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-git%E7%94%A8%E6%B3%95%EF%BC%88add%E3%80%81commit%E3%80%81push%E3%80%81pull%E3%80%81fetch%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">7.git用法（add、commit、push、pull、fetch）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE"><span class="nav-number">8.</span> <span class="nav-text">8.通信协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#7%E5%B1%82"><span class="nav-number">8.1.</span> <span class="nav-text">7层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP%EF%BC%88%E4%B8%89%E6%AC%A1%E3%80%81%E5%9B%9B%E6%AC%A1%EF%BC%89"><span class="nav-number">8.2.</span> <span class="nav-text">TCP（三次、四次）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UBP"><span class="nav-number">8.3.</span> <span class="nav-text">UBP</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="nav-number">9.</span> <span class="nav-text">9.持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CI"><span class="nav-number">9.1.</span> <span class="nav-text">CI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Jckins"><span class="nav-number">9.2.</span> <span class="nav-text">Jckins</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-docker"><span class="nav-number">10.</span> <span class="nav-text">10.docker</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xuys</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xuysang.github.io/2019/10/06/%E5%9F%BA%E6%9C%AC%E5%8A%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xuys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨中站在树上唱rap">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基本功 | 雨中站在树上唱rap">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基本功
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-06 11:25:21" itemprop="dateCreated datePublished" datetime="2019-10-06T11:25:21+08:00">2019-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-26 15:11:33" itemprop="dateModified" datetime="2026-02-26T15:11:33+08:00">2026-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>学习知识点掌握（重要）</p>
+<h4 id="1-python"><a href="#1-python" class="headerlink" title="1.python"></a>1.python</h4><h5 id="框架："><a href="#框架：" class="headerlink" title="框架："></a>框架：</h5><h6 id="Flask、tornado"><a href="#Flask、tornado" class="headerlink" title="Flask、tornado"></a>Flask、tornado</h6><h6 id="框架和库有什么区别？"><a href="#框架和库有什么区别？" class="headerlink" title="框架和库有什么区别？"></a>框架和库有什么区别？</h6><h6 id="什么是库什么是模块（module）"><a href="#什么是库什么是模块（module）" class="headerlink" title="什么是库什么是模块（module）"></a>什么是库什么是模块（module）</h6><h6 id="generate迭代器"><a href="#generate迭代器" class="headerlink" title="generate迭代器"></a>generate迭代器</h6><h6 id="yield协程"><a href="#yield协程" class="headerlink" title="yield协程"></a>yield协程</h6><h6 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h6><h5 id="Flask"><a href="#Flask" class="headerlink" title="Flask:"></a>Flask:</h5><h6 id="proxy有什么用"><a href="#proxy有什么用" class="headerlink" title="proxy有什么用"></a>proxy有什么用</h6><h6 id="WSGI协议"><a href="#WSGI协议" class="headerlink" title="WSGI协议"></a>WSGI协议</h6><h5 id="Tornado"><a href="#Tornado" class="headerlink" title="Tornado:"></a>Tornado:</h5><h6 id="Ioloop怎么实现"><a href="#Ioloop怎么实现" class="headerlink" title="Ioloop怎么实现"></a>Ioloop怎么实现</h6><h6 id="异步什么意思"><a href="#异步什么意思" class="headerlink" title="异步什么意思"></a>异步什么意思</h6><h6 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h6><h6 id="c10k问题"><a href="#c10k问题" class="headerlink" title="c10k问题"></a>c10k问题</h6><h6 id="元类-ORM"><a href="#元类-ORM" class="headerlink" title="元类/ORM"></a>元类/ORM</h6><h6 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h6><h4 id="2-Linux操作系统"><a href="#2-Linux操作系统" class="headerlink" title="2.Linux操作系统"></a>2.Linux操作系统</h4><h5 id="进程-线程"><a href="#进程-线程" class="headerlink" title="进程/线程"></a>进程/线程</h5><h5 id="进程："><a href="#进程：" class="headerlink" title="进程："></a>进程：</h5><h6 id="一段代码"><a href="#一段代码" class="headerlink" title="一段代码"></a>一段代码</h6><h6 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h6><h6 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h6><h5 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h5><h6 id="内核级线程"><a href="#内核级线程" class="headerlink" title="内核级线程"></a>内核级线程</h6><h6 id="用户线程"><a href="#用户线程" class="headerlink" title="用户线程"></a>用户线程</h6><h5 id="内存-虚存"><a href="#内存-虚存" class="headerlink" title="内存/虚存"></a>内存/虚存</h5><h5 id="CPU、内核"><a href="#CPU、内核" class="headerlink" title="CPU、内核"></a>CPU、内核</h5><h5 id="内核态"><a href="#内核态" class="headerlink" title="内核态"></a>内核态</h5><h5 id="用户态"><a href="#用户态" class="headerlink" title="用户态"></a>用户态</h5><h4 id="3-数据结构与算法"><a href="#3-数据结构与算法" class="headerlink" title="3.数据结构与算法"></a>3.数据结构与算法</h4><h5 id="十种排序："><a href="#十种排序：" class="headerlink" title="十种排序："></a>十种排序：</h5><h5 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h5><h5 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h5><h5 id="希尔"><a href="#希尔" class="headerlink" title="希尔"></a>希尔</h5><h5 id="冒泡"><a href="#冒泡" class="headerlink" title="冒泡"></a>冒泡</h5><h5 id="桶排"><a href="#桶排" class="headerlink" title="桶排"></a>桶排</h5><h5 id="树"><a href="#树" class="headerlink" title="树"></a>树</h5><h5 id="二叉树（反转二叉树）"><a href="#二叉树（反转二叉树）" class="headerlink" title="二叉树（反转二叉树）"></a>二叉树（反转二叉树）</h5><h5 id="平衡树-完全树-红黑树"><a href="#平衡树-完全树-红黑树" class="headerlink" title="平衡树 完全树 红黑树"></a>平衡树 完全树 红黑树</h5><h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><h5 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h5><h5 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h5><h4 id="4-mysql"><a href="#4-mysql" class="headerlink" title="4.mysql"></a>4.mysql</h4><h4 id="5-Redis"><a href="#5-Redis" class="headerlink" title="5.Redis"></a>5.Redis</h4><h5 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h5><h5 id="支持哪些应用"><a href="#支持哪些应用" class="headerlink" title="支持哪些应用"></a>支持哪些应用</h5><h4 id="6-消息队列-异步"><a href="#6-消息队列-异步" class="headerlink" title="6.消息队列/异步"></a>6.消息队列/异步</h4><h4 id="7-git用法（add、commit、push、pull、fetch）"><a href="#7-git用法（add、commit、push、pull、fetch）" class="headerlink" title="7.git用法（add、commit、push、pull、fetch）"></a>7.git用法（add、commit、push、pull、fetch）</h4><h4 id="8-通信协议"><a href="#8-通信协议" class="headerlink" title="8.通信协议"></a>8.通信协议</h4><h5 id="7层"><a href="#7层" class="headerlink" title="7层"></a>7层</h5><h5 id="TCP（三次、四次）"><a href="#TCP（三次、四次）" class="headerlink" title="TCP（三次、四次）"></a>TCP（三次、四次）</h5><h5 id="UBP"><a href="#UBP" class="headerlink" title="UBP"></a>UBP</h5><h4 id="9-持续集成"><a href="#9-持续集成" class="headerlink" title="9.持续集成"></a>9.持续集成</h4><h5 id="CI"><a href="#CI" class="headerlink" title="CI"></a>CI</h5><h5 id="Jckins"><a href="#Jckins" class="headerlink" title="Jckins"></a>Jckins</h5><h4 id="10-docker"><a href="#10-docker" class="headerlink" title="10.docker"></a>10.docker</h4>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"># 基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/09/19/JavaScript%E7%AC%94%E8%AE%B0/" rel="prev" title="JavaScript笔记">
+                  <i class="fa fa-angle-left"></i> JavaScript笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/10/07/%E8%AE%B0%E6%A8%AA%E7%A9%BA%E5%87%BA%E4%B8%96%E4%B8%8Epurple/" rel="next" title="记横空出世与purple">
+                  记横空出世与purple <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">xuys</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
